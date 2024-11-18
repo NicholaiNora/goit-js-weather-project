@@ -105,41 +105,7 @@
 
 
 .date-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 200px;
     position: absolute;
     left: 0;
     bottom: 0;
-}
-
-.quotes-container {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-.quotes-paragraph {
-    width: 340px;
-    min-height: 80px;
-    color: #FFF;
-    text-align: right;
-    font-family: Lato;
-    font-size: 22px;
-    font-style: italic;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.88px;
-}
-
-.quotes-person {
-    color: #FFF;
-    text-align: right;
-    font-family: Lato;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 0.72px;
 }
