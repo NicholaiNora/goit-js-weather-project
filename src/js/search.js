@@ -1,5 +1,6 @@
 import Notiflix from 'notiflix';
 import { fetchWeather } from './api';
+import { getQuote } from './quotes';
 
 const form = document.querySelector('.search-form');
 const input = document.querySelector('.search-input');
@@ -14,7 +15,9 @@ function handleSubmit(e) {
   }
   if (city) {
     fetchWeather(city);
+    getQuote();
   }
 }
 
 fetchWeather("Manila");
+getQuote();

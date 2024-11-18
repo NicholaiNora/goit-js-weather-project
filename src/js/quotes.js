@@ -1,16 +1,20 @@
-// const quotes = document.querySelector('.quotes-container');
+import quotes from '../quotesData';
 
-// async function fetchRandomQuote() {
-//   try {
-//     const response = await axios.get('https://api.quotable.io/random');
-//     quotesData = await response.data;
-//       quotes.innerHTML = `<p class="quotes-paragraph">${quotesData.content}</p>
-//       <span class="quotes-person">${quotesData.author}</span>`;
-//   } catch (e) {
-//     console.log(e);
-//   }
-// }
+const quotesContainer = document.querySelector('.quotes-container');
 
-// fetchRandomQuote();
+function getRandomNumber() {
+  return Math.floor(Math.random() * quotes.length);
+}
 
-// export { sunRiseTime, sunSetTime, updateWeekName, updateMonthName, updateTimer };
+let timerInterval
+export const getQuote = () => {
+if (timerInterval) clearInterval(timerInterval);
+timerInterval = setInterval(() => {
+    const quote = quotes[getRandomNumber()];
+    quotesContainer.innerHTML = `<p class="quotes-paragraph">
+        ${quote.quote}
+      </p>
+      <cite class="quotes-author">${quote.author}</cite>`;
+}, 5000);
+
+};

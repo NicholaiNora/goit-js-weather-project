@@ -55,11 +55,9 @@ function getMonthName(month) {
 export const getDate = date => {
 
   let utcTimestamp = date.dt; // Current time in UTC
-  console.log(utcTimestamp)
   let timezoneOffset = date.timezone;  // Offset in seconds
 
   let localTimestamp = utcTimestamp + timezoneOffset;
-  console.log(localTimestamp);
 
   const utcLocalTimestamp = new Date(localTimestamp * 1000); // Multiply by 1000 to convert seconds to milliseconds
 
