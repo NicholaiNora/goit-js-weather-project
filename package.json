@@ -5,7 +5,7 @@
   "homepage": "https://nicholainora.github.io/goit-js-weather-project/",
   "scripts": {
     "start": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /https://nicholainora.github.io/goit-js-weather-project/"
+    "build": "parcel build src/*.html --public-url /goit-js-weather-project/"
   },
   "repository": {
     "type": "git",
