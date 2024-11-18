@@ -22,7 +22,8 @@
     "axios": "^1.7.7",
     "chart.js": "^4.4.3",
     "modern-normalize": "^1.1.0",
-    "notiflix": "^3.2.7"
+    "notiflix": "^3.2.7",
+    "regenerator-runtime": "^0.14.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
