@@ -17,3 +17,4 @@ function handleSubmit(e) {
   }
 }
 
+fetchWeather("Manila");

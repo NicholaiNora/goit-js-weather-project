@@ -4,8 +4,6 @@ const dateTime = document.querySelector('.time-span');
 const sunRise = document.querySelector('.date-sun-rise-span');
 const sunSet = document.querySelector('.date-sun-set-span');
 
-
-
 const months = [
   'January',
   'February',
@@ -20,8 +18,8 @@ const months = [
   'November',
   'December',
 ];
+
 const weekdays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
-// console.log(date);
 
 // function getDayWithOrdinal(date) {
 //   const day = date.getDate();
@@ -54,43 +52,16 @@ function getMonthName(month) {
   return months[month.getMonth()];
 }
 
-let timerInterval;
-
-function updateTimer(time) {
-  let hours = time.getUTCHours();
-  let minutes = time.getUTCMinutes();
-  let seconds = time.getUTCSeconds();
-
-  let totalSeconds = hours * 3600 + minutes * 60 + seconds; // Start time in seconds
-
-  if (timerInterval) {
-    clearInterval(timerInterval);
-  }
-  timerInterval = setInterval(() => {
-    totalSeconds++;
-    hours = Math.floor(totalSeconds / 3600)
-      .toString()
-      .padStart(2, '0');
-    minutes = Math.floor((totalSeconds % 3600) / 60)
-      .toString()
-      .padStart(2, '0');
-    seconds = (totalSeconds % 60).toString().padStart(2, '0');
-    dateTime.innerHTML = `${hours}:${minutes}:${seconds}`;
-  }, 1000);
-}
-
 export const getDate = date => {
 
   let utcTimestamp = date.dt; // Current time in UTC
-  
-  let timezoneOffset = date.timezone; // Offset in seconds
+  console.log(utcTimestamp)
+  let timezoneOffset = date.timezone;  // Offset in seconds
 
   let localTimestamp = utcTimestamp + timezoneOffset;
   console.log(localTimestamp);
 
-  
   const utcLocalTimestamp = new Date(localTimestamp * 1000); // Multiply by 1000 to convert seconds to milliseconds
-  console.log(utcLocalTimestamp)
 
   dateDay.innerHTML = `${utcLocalTimestamp.getDate()}<sup>${getOrdinalSuffix(
     utcLocalTimestamp.getDate()
@@ -98,46 +69,48 @@ export const getDate = date => {
 
   dateMonth.innerHTML = `${getMonthName(utcLocalTimestamp)}`;
 
-  updateTimer(utcLocalTimestamp);
-  
+  updateTime(date);
+
   sunRiseTime(date);
   sunSetTime(date);
 };
 
-function sunRiseTime(weatherData) {
-  const sunriseTime = new Date(weatherData.sys.sunrise * 1000);
+let timerInterval; //para di bumalik sa dating time every second;
 
-  return (sunRise.innerHTML = `${sunriseTime
-    .getHours()
+export const updateTime = (time) => {
+  const utcStartTime = new Date(time.dt * 1000); // Start time in UTC
+  const timezoneOffset = time.timezone * 1000; // Convert seconds to milliseconds for consistency
+
+  if (timerInterval) clearInterval(timerInterval);
+  timerInterval = setInterval(() => {
+    const now = new Date();
+    const elapsedTime = now - utcStartTime; // Elapsed time since the UTC start
+    const adjustedTime = new Date(utcStartTime.getTime() + elapsedTime + timezoneOffset); // Adjusted to the target timezone
+
+    // Format adjustedTime to HH:mm:ss
+    const hours = adjustedTime.getUTCHours().toString().padStart(2, '0');
+    const minutes = adjustedTime.getUTCMinutes().toString().padStart(2, '0');
+    const seconds = adjustedTime.getUTCSeconds().toString().padStart(2, '0');
+
+    dateTime.innerHTML = `${hours}:${minutes}:${seconds}`;
+  }, 1000);
+};
+
+export const sunRiseTime = (weatherData) => {
+  const sunriseTime = new Date((weatherData.sys.sunrise + weatherData.timezone) * 1000);
+
+  sunRise.innerHTML = `${sunriseTime.getUTCHours().toString().padStart(2, '0')}:${sunriseTime
+    .getUTCMinutes()
     .toString()
-    .padStart(2, '0')}:${sunriseTime
-    .getMinutes()
+    .padStart(2, '0')}`;
+};
+
+export const sunSetTime = (weatherData) => {
+  const sunsetTime = new Date((weatherData.sys.sunset + weatherData.timezone) * 1000);
+
+  sunSet.innerHTML = `${sunsetTime.getUTCHours().toString().padStart(2, '0')}:${sunsetTime
+    .getUTCMinutes()
     .toString()
-    .padStart(2, '0')}`);
-}
+    .padStart(2, '0')}`;
+};
 
-function sunSetTime(weatherData) {
-  const sunsetTime = new Date(weatherData.sys.sunset * 1000);
-
-  return (sunSet.innerHTML = `${sunsetTime
-    .getHours()
-    .toString()
-    .padStart(2, '0')}:${sunsetTime.getMinutes().toString().padStart(2, '0')}`);
-}
-
-// const quotes = document.querySelector('.quotes-container');
-
-// async function fetchRandomQuote() {
-//   try {
-//     const response = await axios.get('https://api.quotable.io/random');
-//     quotesData = await response.data;
-//       quotes.innerHTML = `<p class="quotes-paragraph">${quotesData.content}</p>
-//       <span class="quotes-person">${quotesData.author}</span>`;
-//   } catch (e) {
-//     console.log(e);
-//   }
-// }
-
-// fetchRandomQuote();
-
-// export { sunRiseTime, sunSetTime, updateWeekName, updateMonthName, updateTimer };
