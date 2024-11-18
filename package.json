@@ -2,14 +2,14 @@
   "name": "parcel-project-template",
   "version": "2.0.0",
   "description": "Цей проект створено за допомогою Parcel. Для ознайомлення та налаштування \r додаткових можливостей, [зверніться до документації](https://parceljs.org/).",
-  "homepage": "https://goitacademy.github.io/parcel-project-template",
+  "homepage": "https://nicholainora.github.io/goit-js-weather-project/",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /parcel-project-template/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
+    "url": "git+https://nicholainora.github.io/goit-js-weather-project.git"
   },
   "keywords": [],
   "author": "Alexander Repeta <alexander.repeta@gmail.com>",
@@ -21,7 +21,6 @@
     "axios": "^1.7.7",
     "chart.js": "^4.4.3",
     "modern-normalize": "^1.1.0",
-    "moment-timezone": "^0.5.46",
     "notiflix": "^3.2.7"
   },
   "devDependencies": {
