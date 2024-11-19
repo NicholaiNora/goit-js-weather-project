@@ -2,16 +2,15 @@
 
 body {
   background: green;
-     position: relative;
 }
 
 .container {
-    width: 100%;
-    min-height: 954px;
-    
-    margin: 0 auto;
-    // padding: 0 110px;
-    padding-top: 79px;
+  width: 1280px;
+  min-height: 954px;
+  margin: 0 auto;
+  // padding: 0 110px;
+  padding-top: 79px;
+  position: relative;
 }
 
 * {
@@ -52,7 +51,7 @@ img {
 .hidden {
   display: none;
   visibility: hidden;
-  position: relative;
+  position: absolute;
   opacity: 0;
   width: 1px;
   height: 1px;
@@ -65,9 +64,9 @@ img {
   overflow: hidden;
 }
 
-.transition{
+.transition {
   -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition:all 0.5s ease-in-out;
-  -o-transition:all 0.5s ease-in-out;
-  transition:all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
 }

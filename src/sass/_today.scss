@@ -5,7 +5,8 @@
     align-items: center;
     width: 450px;
     height: 300px;
-    border-radius: 34px 0px 0px 34px;
+    // border-radius: 34px 0px 0px 34px;
+    border-radius: 34px;
     background: #102136;
     /* shadow */
     box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.60);
@@ -95,26 +96,28 @@
 .choose-weather-container {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    margin-top: 92px;
-    margin-bottom: 65px;
-    position: absolute;
-    right: 0;
+    justify-content: center;
+    align-items: flex-end;
+    // margin-bottom: 65px;
+    // position: absolute;
+    // right: 0;
 }
 
 
-// .choose-weather-wrapper {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     align-items: center;
-//     gap: 26px;
-// }
+.choose-weather-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+}
 
 .choose-day-list {
     display: flex;
+    align-items: center;
     gap: 18px;
     margin-top: 20px;
+    margin-right: 110px;
 }
 
 .choose-day-btn {
@@ -137,7 +140,8 @@
     font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
-    cursor: pointer
+    cursor: pointer;
+    transition:all 0.5s ease-in-out;
 }
 
 .active, .choose-day-btn:hover {

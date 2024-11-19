@@ -2,9 +2,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-end;
+    align-items: center;
     gap: 20px;
-    margin-top: 61px;
+    margin-top: -35px;
 }
 
 .fivedays-country-container {
@@ -170,8 +170,8 @@
     display: flex;
     justify-content: center;
     align-items:center;
-    margin-left: 490px;
-    align-self: flex-start;
+    // margin-left: 490px;
+    // align-self: flex-start;
     gap: 10px;
 }
 

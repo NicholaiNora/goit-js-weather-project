@@ -9,7 +9,7 @@ const fiveDaysButton = document.querySelector(".fivedays-button");
 
 const fiveDaysContainer = document.querySelector(".fivedays-container");
 const dateContainer = document.querySelector(".date-wrapper");
-const todayContainer = document.querySelector(".weather-today-container");
+const todayContainer = document.querySelector(".choose-weather-wrapper");
 const quotesContainer = document.querySelector(".quotes-container");
 
 export const getWeatherToday = (weather) => {
