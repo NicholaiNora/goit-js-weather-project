@@ -1,13 +1,17 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
+body {
+  background: green;
+     position: relative;
+}
+
 .container {
-    width: 1280px;
+    width: 100%;
     min-height: 954px;
-    background: green;
+    
     margin: 0 auto;
     // padding: 0 110px;
     padding-top: 79px;
-    position: relative;
 }
 
 * {
@@ -48,15 +52,22 @@ img {
 .hidden {
   display: none;
   visibility: hidden;
-  position: absolute;
+  position: relative;
   opacity: 0;
   width: 1px;
   height: 1px;
-  margin: -1px;
+  margin: 0;
   border: 0;
   padding: 0;
   white-space: nowrap;
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.transition{
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition:all 0.5s ease-in-out;
+  -o-transition:all 0.5s ease-in-out;
+  transition:all 0.5s ease-in-out;
 }
