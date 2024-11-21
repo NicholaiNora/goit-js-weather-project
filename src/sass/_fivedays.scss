@@ -162,7 +162,7 @@
     opacity: 0.3;
 }
 
-.fivedays-more-info::after {
+.fivedays-more-info:hover::after {
   content: '';
   position: absolute;
   width: 100%;

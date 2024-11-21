@@ -5,6 +5,7 @@ import { getWeatherToday } from './today';
 import { getDate } from './date';
 import { getCountry } from './fiveDays';
 import { getFiveForecast } from './fiveDays';
+import { getMoreInfo } from './moreInfo';
 
 const API = 'c32df37628577b1447329bd64ef99bea';
 
@@ -47,6 +48,7 @@ export const fetchFiveForecast = async city => {
     const fiveDayForecast = data.list.filter((_item, index) => index % 8 === 0);
     console.log(fiveDayForecast);
     getFiveForecast(fiveDayForecast);
+    getMoreInfo(data, 1);
   } catch (error) {
     console.log(error.message);
     Notiflix.Notify.failure("Can't fetch weather");
