@@ -45,10 +45,8 @@ export const fetchFiveForecast = async city => {
       `https://api.openweathermap.org/data/2.5/forecast?lat=${weather[0].lat}&lon=${weather[0].lon}&units=metric&appid=${API}`
     );
     const data = await res.data;
-    const fiveDayForecast = data.list.filter((_item, index) => index % 8 === 0);
-    console.log(fiveDayForecast);
-    getFiveForecast(fiveDayForecast);
-    getMoreInfo(data, 1);
+    getFiveForecast(data);
+    getMoreInfo(data);
   } catch (error) {
     console.log(error.message);
     Notiflix.Notify.failure("Can't fetch weather");

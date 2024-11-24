@@ -1,19 +1,23 @@
+import { getMoreInfo } from './moreInfo';
+
 const country = document.querySelector('.fivedays-country');
-const ul = document.querySelector('.fivedays-result-list');
-const moreButton = document.querySelector('.fivedays-more-info');
-console.log(moreButton);
+const ulForecast = document.querySelector('.fivedays-result-list');
 
 export const getCountry = weather => {
   country.textContent = `${weather.name}, ${weather.sys.country}`;
 };
 
-export const getFiveForecast = weather => {
-  ul.innerHTML = '';
+export const getFiveForecast = forecast => {
+  const fiveDayForecast = forecast.list.filter(
+    (_item, index) => index % 8 === 0
+  );
+  console.log(fiveDayForecast);
 
-  weather.map(list => {
+  ulForecast.innerHTML = '';
+
+  fiveDayForecast.map(list => {
     const li = document.createElement('li');
     li.classList.add('fivedays-result-item');
-    
     li.innerHTML = `
       <span class="fivedays-week">${getWeekdayFromTimestamp(list.dt)}</span>
       <span class="fivedays-date">${getFormattedDateFromTimestamp(
@@ -41,10 +45,20 @@ export const getFiveForecast = weather => {
       </ul>
       <button class="fivedays-more-info">more info</button>
     `;
-      
     // Append the list item to the ul
-    ul.appendChild(li);
+    ulForecast.appendChild(li);
   });
+
+  const moreInfoButton = document.querySelectorAll('.fivedays-more-info');
+  const moreInfoContainer = document.querySelector('.more-info-container');
+
+  console.log(moreInfoButton);
+  moreInfoButton.forEach((button, index) =>
+    button.addEventListener('click', () => {
+      moreInfoContainer.classList.remove('hidden');
+      getMoreInfo(forecast, index);
+    })
+  );
 };
 
 function getWeekdayFromTimestamp(timestamp) {
