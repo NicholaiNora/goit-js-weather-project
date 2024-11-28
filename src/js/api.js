@@ -25,24 +25,10 @@ export const fetchWeather = async city => {
   }
 };
 
-const fetchWeatherCity = async city => {
-  try {
-    const res = await axios.get(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API}`
-    );
-    const data = await res.data;
-    return data;
-  } catch (error) {
-    console.log(error);
-    Notiflix.Notify.failure("Can't fetch weather in this city");
-  }
-};
-
 export const fetchFiveForecast = async city => {
   try {
-    const weather = await fetchWeatherCity(city);
     const res = await axios.get(
-      `https://api.openweathermap.org/data/2.5/forecast?lat=${weather[0].lat}&lon=${weather[0].lon}&units=metric&appid=${API}`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API}&units=metric`
     );
     const data = await res.data;
     getFiveForecast(data);
@@ -52,3 +38,31 @@ export const fetchFiveForecast = async city => {
     Notiflix.Notify.failure("Can't fetch weather");
   }
 };
+
+// const fetchWeatherCity = async city => {
+//   try {
+//     const res = await axios.get(
+//       `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${API}`
+//     );
+//     const data = await res.data;
+//     return data;
+//   } catch (error) {
+//     console.log(error);
+//     Notiflix.Notify.failure("Can't fetch weather in this city");
+//   }
+// };
+
+// export const fetchFiveForecast = async city => {
+//   try {
+//     const weather = await fetchWeatherCity(city);
+//     const res = await axios.get(
+//       `https://api.openweathermap.org/data/2.5/forecast?lat=${weather[0].lat}&lon=${weather[0].lon}&units=metric&appid=${API}`
+//     );
+//     const data = await res.data;
+//     getFiveForecast(data);
+//     getMoreInfo(data);
+//   } catch (error) {
+//     console.log(error.message);
+//     Notiflix.Notify.failure("Can't fetch weather");
+//   }
+// };
