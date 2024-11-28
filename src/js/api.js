@@ -3,8 +3,8 @@ import Notiflix from 'notiflix';
 
 import { getWeatherToday } from './today';
 import { getDate } from './date';
-import { getCountry } from './fivedays';
-import { getFiveForecast } from './fivedays';
+import { getCountry } from './fiveDays';
+import { getFiveForecast } from './fiveDays';
 import { getMoreInfo } from './moreInfo';
 
 const API = 'c32df37628577b1447329bd64ef99bea';

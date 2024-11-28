@@ -3,7 +3,7 @@ import './js/search';
 import './js/today';
 import './js/date';
 import './js/quotes';
-import './js/fivedays';
+import './js/fiveDays';
 import './js/moreInfo';
 // import './js/chart';
 // import './js/weather';
