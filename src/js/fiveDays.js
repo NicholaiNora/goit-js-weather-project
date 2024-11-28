@@ -50,15 +50,40 @@ export const getFiveForecast = forecast => {
   });
 
   const moreInfoButton = document.querySelectorAll('.fivedays-more-info');
+  const fiveDayItem = document.querySelectorAll('.fivedays-result-item');
   const moreInfoContainer = document.querySelector('.more-info-container');
+  const closeButton = document.querySelector('.more-info-button');
+  console.log(closeButton);
+  // ito yung hindi pa gumamit ng Event Delegation
+  // moreInfoButton.forEach((button, index) =>
+  //   button.addEventListener('click', (e) => {
+  //     moreInfoContainer.classList.remove('hidden');
+  //     getMoreInfo(forecast, index);
+  //     fiveDayItem[index].classList.add('fivedays-week-active');
+  //   })
+  // );
 
-  console.log(moreInfoButton);
-  moreInfoButton.forEach((button, index) =>
-    button.addEventListener('click', () => {
+  ulForecast.addEventListener('click', (e) => {
+    if (e.target && e.target.matches('.fivedays-more-info')) {
+      const index = Array.from(moreInfoButton).indexOf(e.target);
       moreInfoContainer.classList.remove('hidden');
       getMoreInfo(forecast, index);
-    })
-  );
+  
+      // Remove the active class from all items
+      fiveDayItem.forEach(item => {
+        item.classList.remove('fivedays-week-active');
+      });
+  
+      // Add the active class to the clicked item
+      fiveDayItem[index].classList.add('fivedays-week-active');
+    }
+  });
+
+  closeButton.addEventListener('click', () => {
+    fiveDayItem.forEach(item => {
+      item.classList.remove('fivedays-week-active');
+    });
+  })
 };
 
 function getWeekdayFromTimestamp(timestamp) {
@@ -72,7 +97,6 @@ function getWeekdayFromTimestamp(timestamp) {
 
   // Get the day of the week (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
   const weekdayIndex = date.getDay();
-
   // Return the weekday name
   return weekdays[weekdayIndex];
 }
