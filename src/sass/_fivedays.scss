@@ -3,6 +3,13 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.fivedays-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 20px;
   margin-top: -35px;
 }
@@ -188,53 +195,4 @@
   background-color: #fff; /* Adjust color */
   bottom: 1px; /* Adjust position */
   left: 0;
-}
-
-.show-chart-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // margin-left: 490px;
-  // align-self: flex-start;
-  gap: 10px;
-}
-
-.show-chart-span {
-  position: relative;
-  display: flex;
-  width: 72px;
-  height: 18px;
-  flex-direction: center;
-  justify-content: center;
-  color: #ff6b09;
-  font-family: Lato;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-
-.show-chart-span::after {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 0.5px; /* Adjust thickness */
-  background-color: #ff6b09; /* Adjust color */
-  bottom: 1px; /* Adjust position */
-  left: 0;
-}
-
-.show-chart-arrow-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: none;
-  outline: none;
-  background: none;
-}
-
-.show-chart-arrow-icon {
-  width: 28px;
-  height: 28px;
-  transform: rotate(90deg);
 }

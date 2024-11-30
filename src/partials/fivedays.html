@@ -1,110 +1,11 @@
 <section class="fivedays-container hidden transition">
-  <div class="fivedays-country-container">
-    <span class="fivedays-country">Kyiv, UA</span>
-  </div>
-  <div class="fivedays-result-container">
-    <ul class="fivedays-result-list">
-      <!-- <li class="fivedays-result-item">
-        <span class="fivedays-week">Sunday</span>
-        <span class="fivedays-date">09 Feb</span>
-        <span class="fivedays-weather-span">
-          <svg class="fivedays-weather-icon">
-            <use href="/src/images/icons.svg#cloudy"></use>
-          </svg>
-        </span>
-        <ul class="fivedays-range-list">
-          <li class="fivedays-range-item">
-            <span class="fivedays-range">min</span>
-            <span class="fivedays-temp">-2°</span>
-          </li>
-          <li class="weather-today-line">
-            <svg>
-              <use href="/src/images/icons.svg#line3"></use>
-            </svg>
-          </li>
-          <li class="fivedays-range-item">
-            <span class="fivedays-range">max</span>
-            <span class="fivedays-temp">1°</span>
-          </li>
-        </ul>
-        <button class="fivedays-more-info">more info</button>
-      </li>
-      <li class="fivedays-result-item">
-        <span class="fivedays-week">Sunday</span>
-        <span class="fivedays-date">09 Feb</span>
-        <span class="fivedays-weather-span">
-          <svg class="fivedays-weather-icon">
-            <use href="/src/images/icons.svg#cloudy"></use>
-          </svg>
-        </span>
-        <ul class="fivedays-range-list">
-          <li class="fivedays-range-item">
-            <span class="fivedays-range">min</span>
-            <span class="fivedays-temp">-2°</span>
-          </li>
-          <li class="weather-today-line">
-            <svg>
-              <use href="/src/images/icons.svg#line3"></use>
-            </svg>
-          </li>
-          <li class="fivedays-range-item">
-            <span class="fivedays-range">max</span>
-            <span class="fivedays-temp">1°</span>
-          </li>
-        </ul>
-        <button class="fivedays-more-info">more info</button>
-      </li>
-      <li class="fivedays-result-item">
-        <span class="fivedays-week">Sunday</span>
-        <span class="fivedays-date">09 Feb</span>
-        <span class="fivedays-weather-span">
-          <svg class="fivedays-weather-icon">
-            <use href="/src/images/icons.svg#cloudy"></use>
-          </svg>
-        </span>
-        <ul class="fivedays-range-list">
-          <li class="fivedays-range-item">
-            <span class="fivedays-range">min</span>
-            <span class="fivedays-temp">-2°</span>
-          </li>
-          <li class="weather-today-line">
-            <svg>
-              <use href="/src/images/icons.svg#line3"></use>
-            </svg>
-          </li>
-          <li class="fivedays-range-item">
-            <span class="fivedays-range">max</span>
-            <span class="fivedays-temp">1°</span>
-          </li>
-        </ul>
-        <button class="fivedays-more-info">more info</button>
-      </li>
-      <li class="fivedays-result-item">
-        <span class="fivedays-week">Sunday</span>
-        <span class="fivedays-date">09 Feb</span>
-        <span class="fivedays-weather-span">
-          <svg class="fivedays-weather-icon">
-            <use href="/src/images/icons.svg#cloudy"></use>
-          </svg>
-        </span>
-        <ul class="fivedays-range-list">
-          <li class="fivedays-range-item">
-            <span class="fivedays-range">min</span>
-            <span class="fivedays-temp">-2°</span>
-          </li>
-          <li class="weather-today-line">
-            <svg>
-              <use href="/src/images/icons.svg#line3"></use>
-            </svg>
-          </li>
-          <li class="fivedays-range-item">
-            <span class="fivedays-range">max</span>
-            <span class="fivedays-temp">1°</span>
-          </li>
-        </ul>
-        <button class="fivedays-more-info">more info</button>
-      </li>
-      <li class="fivedays-result-item">
+  <div class="fivedays-wrapper">
+    <div class="fivedays-country-container">
+      <span class="fivedays-country">Kyiv, UA</span>
+    </div>
+    <div class="fivedays-result-container">
+      <ul class="fivedays-result-list">
+        <!-- <li class="fivedays-result-item">
         <span class="fivedays-week">Sunday</span>
         <span class="fivedays-date">09 Feb</span>
         <span class="fivedays-weather-span">
@@ -129,15 +30,19 @@
         </ul>
         <button class="fivedays-more-info">more info</button>
       </li> -->
-    </ul>
-    <include src="./partials/moreInfo.html"></include>
+      </ul>
+      <include src="./partials/moreInfo.html"></include>
+    </div>
   </div>
   <div class="show-chart-container">
-    <span class="show-chart-span">Show Chart</span>
-    <button class="show-chart-arrow-btn">
-      <svg class="show-chart-arrow-icon">
-        <use href="/src/images/icons.svg#arrow-left"></use>
-      </svg>
-    </button>
+    <div class="show-chart-button">
+      <span class="show-chart-span">Show Chart</span>
+      <button class="show-chart-arrow-btn">
+        <svg class="show-chart-arrow-icon">
+          <use href="/src/images/icons.svg#arrow-left"></use>
+        </svg>
+      </button>
+    </div>
+    <include src="./partials/chart.html"></include>
   </div>
 </section>
