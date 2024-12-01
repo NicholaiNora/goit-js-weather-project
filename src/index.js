@@ -6,5 +6,6 @@ import './js/quotes';
 import './js/fiveDays';
 import './js/moreInfo';
 import './js/myChart';
+import './js/chart';
 // import './js/weather';
 // import './js/favorite';

@@ -55,12 +55,9 @@ function getMonthName(month) {
 export const getDate = date => {
 
   let utcTimestamp = date.dt; // Current time in UTC
-  let timezoneOffset = date.timezone;  // Offset in seconds
-
-  let localTimestamp = utcTimestamp + timezoneOffset;
-
-  const utcLocalTimestamp = new Date(localTimestamp * 1000); // Multiply by 1000 to convert seconds to milliseconds
-
+  
+  const utcLocalTimestamp = new Date(utcTimestamp * 1000); // Multiply by 1000 to convert seconds to milliseconds
+  console.log(utcLocalTimestamp);
   dateDay.innerHTML = `${utcLocalTimestamp.getDate()}<sup>${getOrdinalSuffix(
     utcLocalTimestamp.getDate()
   )}</sup> ${getWeekName(utcLocalTimestamp)}`;

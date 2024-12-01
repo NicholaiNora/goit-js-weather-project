@@ -114,5 +114,5 @@ function getFormattedDateFromTimestamp(timestamp) {
   // Get the month name
   const month = months[monthIndex];
 
-  return `${day} ${month}`;
+  return `${day} ${month}`; 
 }
