@@ -66,6 +66,7 @@ export const getFiveForecast = forecast => {
   ulForecast.addEventListener('click', (e) => {
     if (e.target && e.target.matches('.fivedays-more-info')) {
       const index = Array.from(moreInfoButton).indexOf(e.target);
+  
       moreInfoContainer.classList.remove('hidden');
       getMoreInfo(forecast, index);
   
@@ -76,6 +77,14 @@ export const getFiveForecast = forecast => {
   
       // Add the active class to the clicked item
       fiveDayItem[index].classList.add('fivedays-week-active');
+
+      const selectedItem = fiveDayItem[index]; // Get the clicked list item
+
+      // Scroll the selected list item into view
+      selectedItem.scrollIntoView({
+        behavior: 'smooth', // Optional, makes the scroll smooth
+        block: 'start',    // Optional, aligns the item in the center of the viewport
+      });
     }
   });
 

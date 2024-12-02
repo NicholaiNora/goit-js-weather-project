@@ -1,6 +1,7 @@
 import Notiflix from 'notiflix';
-import { fetchFiveForecast, fetchImage, fetchWeather } from './api';
+import { fetchFiveForecast, fetchWeather } from './api';
 import { getQuote } from './quotes';
+import { fetchImage } from './backgroundApi';
 
 const form = document.querySelector('.search-form');
 const input = document.querySelector('.search-input');

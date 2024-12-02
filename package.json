@@ -21,6 +21,7 @@
     "@swc/helpers": "^0.5.15",
     "axios": "^1.7.7",
     "chart.js": "^4.4.3",
+    "gsap": "^3.12.5",
     "modern-normalize": "^1.1.0",
     "notiflix": "^3.2.7",
     "regenerator-runtime": "^0.14.1"

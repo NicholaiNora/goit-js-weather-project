@@ -12,6 +12,11 @@ showButton.addEventListener('click', () => {
     chartContainer.classList.remove('hidden');
     chartSpan.textContent = 'Hide Chart';
     arrowIcon.style.transform = 'rotate(180deg)';
+    chartContainer.style.marginBottom = "10px";
+    chartContainer.scrollIntoView({
+      behavior: 'smooth', // Smooth scroll animation
+      block: 'start'      // Align the top of the element to the top of the viewport
+    });
     isOpen = true;
   } else {
     chartContainer.classList.add('hidden');
