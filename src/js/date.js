@@ -94,7 +94,7 @@ export const updateTime = (time) => {
 export const sunRiseTime = (weatherData) => {
   const sunriseTime = new Date((weatherData.sys.sunrise + weatherData.timezone) * 1000);
 
-  sunRise.innerHTML = `${sunriseTime.getUTCHours().toString().padStart(2, '0')}:${sunriseTime
+  sunRise.textContent = `${sunriseTime.getUTCHours().toString().padStart(2, '0')}:${sunriseTime
     .getUTCMinutes()
     .toString()
     .padStart(2, '0')}`;
@@ -103,7 +103,7 @@ export const sunRiseTime = (weatherData) => {
 export const sunSetTime = (weatherData) => {
   const sunsetTime = new Date((weatherData.sys.sunset + weatherData.timezone) * 1000);
 
-  sunSet.innerHTML = `${sunsetTime.getUTCHours().toString().padStart(2, '0')}:${sunsetTime
+  sunSet.textContent = `${sunsetTime.getUTCHours().toString().padStart(2, '0')}:${sunsetTime
     .getUTCMinutes()
     .toString()
     .padStart(2, '0')}`;

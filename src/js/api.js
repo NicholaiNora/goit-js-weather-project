@@ -9,6 +9,7 @@ import { getMoreInfo } from './moreInfo';
 import { getChartData } from './myChart';
 
 const API = 'c32df37628577b1447329bd64ef99bea';
+const API_KEY = '43784096-87519b5a7d318238fedcc7f7a';
 
 export const fetchWeather = async city => {
   try {
@@ -68,3 +69,14 @@ export const fetchFiveForecast = async city => {
 //     Notiflix.Notify.failure("Can't fetch weather");
 //   }
 // };
+
+export const fetchImage = async search => {
+  const randomNumber = Math.round(Math.random() * 10);
+
+  const url = `https://pixabay.com/api/?q=${search}&key=${API_KEY}&image_type=photo&orientation=horizontal`;
+
+  const response = await axios.get(url);
+  const imageUrl = response.data.hits[randomNumber].webformatURL; // Get the image URL
+  document.querySelector("body").style.background = `url(${imageUrl}) no-repeat center fixed`;
+  document.querySelector("body").style.backgroundSize = "cover"; // Ensure the background is properly scaled
+};

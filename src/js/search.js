@@ -1,5 +1,5 @@
 import Notiflix from 'notiflix';
-import { fetchFiveForecast, fetchWeather } from './api';
+import { fetchFiveForecast, fetchImage, fetchWeather } from './api';
 import { getQuote } from './quotes';
 
 const form = document.querySelector('.search-form');
@@ -16,10 +16,12 @@ function handleSubmit(e) {
   if (city) {
     fetchWeather(city);
     fetchFiveForecast(city);
+    fetchImage(city);
     getQuote();
   }
 }
 
-fetchWeather("Manila");
-fetchFiveForecast("Manila");
+fetchWeather('Manila');
+fetchImage("Manila");
+fetchFiveForecast('Manila');
 getQuote();
