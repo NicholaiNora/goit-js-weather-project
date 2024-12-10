@@ -5,15 +5,13 @@ const itemsPerPage = 8; // How many items to show per page
 
 export const getMoreInfo = (weather, page) => {
   ul.innerHTML = '';
-
-  console.log(weather);
+  
   // Calculate the start and end indices for the current page
   const startIndex = page * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
 
   // Get a slice of the filtered futureItems array for the current page
   const itemsToDisplay = weather.list.slice(startIndex, endIndex);
-  console.log(itemsToDisplay);
 
   itemsToDisplay.forEach(list => {
     const li = document.createElement('li');

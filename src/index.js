@@ -9,4 +9,4 @@ import './js/myChart';
 import './js/chart';
 import './js/backgroundApi';
 import './js/cubeAnimation';
-// import './js/favorite';
+import './js/favorite';

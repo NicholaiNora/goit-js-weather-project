@@ -1,30 +1,25 @@
 <header>
-    <div class="search-container">
-        <form class="search-form">
-            <div class="search-wrapper">
-                <button class="search-location-btn">
-                    <svg class="search-location-icon">
-                        <use href="/src/images/icons.svg#location"></use>
-                    </svg>
-                </button>
-                <input class="search-input"
-                name="search"
-                placeholder="Enter the city"
-                type="text">
-                <button class="search-favorite-btn">
-                    <svg class="search-favorite-icon">
-                        <use href="/src/images/icons.svg#star1"></use>
-                    </svg>
-                </button>
-            </div>
-        </form>
-        <div class="favorite-container">
-            <ul class="favorite-country-list"></ul>
-            <button class="favorite-arrow-btn">
-                <svg class="favorite-arrow-icon">
-                    <use href="/src/images/icons.svg#arrow-left"></use>
-                </svg>
-            </button>
-        </div>
-    </div>
+  <div class="search-container">
+    <form class="search-form">
+      <div class="search-wrapper">
+        <button class="search-location-btn">
+          <svg class="search-location-icon">
+            <use href="/src/images/icons.svg#location"></use>
+          </svg>
+        </button>
+        <input
+          class="search-input"
+          name="search"
+          placeholder="Enter the city"
+          type="text"
+        />
+        <button type="button" class="search-favorite-btn" >
+          <svg class="search-favorite-icon" id="favorite">
+            <use href="/src/images/icons.svg#star1"></use>
+          </svg>
+        </button>
+      </div>
+    </form>
+    <include src="./partials/favorite.html"></include>
+  </div>
 </header>

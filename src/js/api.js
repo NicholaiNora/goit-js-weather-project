@@ -7,9 +7,9 @@ import { getCountry } from './fiveDays';
 import { getFiveForecast } from './fiveDays';
 import { getMoreInfo } from './moreInfo';
 import { getChartData } from './myChart';
+import { getCity } from './favorite';
 
 const API = 'c32df37628577b1447329bd64ef99bea';
-
 
 export const fetchWeather = async city => {
   try {
@@ -17,7 +17,7 @@ export const fetchWeather = async city => {
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API}&units=metric`
     );
     const data = await res.data;
-    console.log(data);
+    console.log(data.name);
     getWeatherToday(data);
     getDate(data);
     getCountry(data);
@@ -41,6 +41,19 @@ export const fetchFiveForecast = async city => {
     Notiflix.Notify.failure("Can't fetch weather");
   }
 };
+
+export const fetchCity = async city => {
+  try {
+    const res = await axios.get(
+      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API}&units=metric`
+    );
+    const data = await res.data;
+    getCity(data.name);
+  }  catch (error) {
+    console.log(error.message);
+    Notiflix.Notify.failure("Can't add such city");
+  }
+}
 
 // const fetchWeatherCity = async city => {
 //   try {

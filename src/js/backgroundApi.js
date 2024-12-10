@@ -21,9 +21,9 @@ export const fetchImage = async (search) => {
     } catch (error) {
         console.error("Error fetching the image:", error.message);
 
-        // Handle the error by displaying a default image or a fallback behavior
-        const fallbackImageUrl = 'https://example.com/default-image.jpg'; // Replace with a valid fallback image URL
-        document.querySelector("body").style.background = `url(${fallbackImageUrl}) no-repeat center fixed`;
-        document.querySelector("body").style.backgroundSize = "cover";
+        // // Handle the error by displaying a default image or a fallback behavior
+        // const fallbackImageUrl = 'https://example.com/default-image.jpg'; // Replace with a valid fallback image URL
+        // document.querySelector("body").style.background = `url(${fallbackImageUrl}) no-repeat center fixed`;
+        // document.querySelector("body").style.backgroundSize = "cover";
     }
 };

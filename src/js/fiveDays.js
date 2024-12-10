@@ -53,7 +53,6 @@ export const getFiveForecast = forecast => {
   const fiveDayItem = document.querySelectorAll('.fivedays-result-item');
   const moreInfoContainer = document.querySelector('.more-info-container');
   const closeButton = document.querySelector('.more-info-button');
-  console.log(closeButton);
   // ito yung hindi pa gumamit ng Event Delegation
   // moreInfoButton.forEach((button, index) =>
   //   button.addEventListener('click', (e) => {
