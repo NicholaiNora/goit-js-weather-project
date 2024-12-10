@@ -1,5 +1,6 @@
 import Notiflix from 'notiflix';
-import { fetchCity } from './api';
+import { fetchCity, fetchFiveForecast, fetchWeather } from './api';
+import { fetchImage } from './backgroundApi';
 
 const form = document.querySelector('.search-form');
 const ulFavorite = document.querySelector('.favorite-country-list');
@@ -14,9 +15,12 @@ function updateArrowVisibility() {
 
   // Show arrows only if content overflows
   if (contentWidth > containerWidth) {
-    scrollLeft.style.display = scrollContainer.scrollLeft === 0 ? 'none' : 'block';
+    scrollLeft.style.display =
+      scrollContainer.scrollLeft === 0 ? 'none' : 'block';
     scrollRight.style.display =
-      scrollContainer.scrollLeft + containerWidth >= contentWidth ? 'none' : 'block';
+      scrollContainer.scrollLeft + containerWidth >= contentWidth
+        ? 'none'
+        : 'block';
   } else {
     // Hide arrows if no overflow
     scrollLeft.style.display = 'none';
@@ -93,15 +97,16 @@ function renderFavorites() {
 
   // Delegate event listener for deleting favorites
   ulFavorite.addEventListener('click', handleFavoriteDelete);
+  ulFavorite.addEventListener('click', handleFavoriteCity);
 
   scrollLeft.addEventListener('click', () => {
     scrollContainer.scrollBy({ left: -100, behavior: 'smooth' });
   });
-  
+
   scrollRight.addEventListener('click', () => {
     scrollContainer.scrollBy({ left: 100, behavior: 'smooth' });
   });
-  
+
   // Attach to scroll and window resize events
   scrollContainer.addEventListener('scroll', updateArrowVisibility);
   window.addEventListener('resize', updateArrowVisibility);
@@ -117,11 +122,19 @@ function handleFavoriteDelete(event) {
   }
 }
 
+function handleFavoriteCity(e) {
+  const location = e.target.closest('.favorite-country').textContent;
+  if (location) {
+    fetchWeather(location);
+    fetchFiveForecast(location);
+    fetchImage(location);
+    getQuote();
+  }
+}
+
 /** Format city name to capitalize the first letter */
 function formatCityName(city) {
   return city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
 }
 
 export const getCity = city => saveFavorite(city);
-
-

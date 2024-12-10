@@ -49,9 +49,10 @@
   line-height: normal;
   position: relative;
   text-transform: capitalize;
+  cursor: pointer;
 }
 
-.favorite-country::after {
+.favorite-country:hover::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -76,7 +77,7 @@
 }
 
 .favorite-close-icon:hover {
-  stroke: white;
+  stroke: whitesmoke;
 }
 
 .favorite-arrow-btn {
@@ -92,8 +93,12 @@
 }
 
 .favorite-arrow-icon {
-  width: 28px;
-  height: 28px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+}
+
+.favorite-arrow-icon:hover {
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 #scrollLeft {

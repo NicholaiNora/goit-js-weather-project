@@ -12,8 +12,6 @@ const dateContainer = document.querySelector(".date-wrapper");
 const todayContainer = document.querySelector(".choose-weather-wrapper");
 const quotesContainer = document.querySelector(".quotes-container");
 
-const container = document.querySelector(".container");
-
 export const getWeatherToday = (weather) => {
     weatherIcon.src = `https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`;
     location.textContent = `${weather.name}, ${weather.sys.country}`;

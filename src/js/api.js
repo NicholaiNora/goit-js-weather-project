@@ -17,7 +17,6 @@ export const fetchWeather = async city => {
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API}&units=metric`
     );
     const data = await res.data;
-    console.log(data.name);
     getWeatherToday(data);
     getDate(data);
     getCountry(data);
@@ -49,11 +48,11 @@ export const fetchCity = async city => {
     );
     const data = await res.data;
     getCity(data.name);
-  }  catch (error) {
+  } catch (error) {
     console.log(error.message);
     Notiflix.Notify.failure("Can't add such city");
   }
-}
+};
 
 // const fetchWeatherCity = async city => {
 //   try {
