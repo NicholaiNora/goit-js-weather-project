@@ -33,11 +33,6 @@ export const getFiveForecast = forecast => {
           <span class="fivedays-range">min</span>
           <span class="fivedays-temp">${Math.round(list.main.temp_min)}°</span>
         </li>
-        <li class="weather-today-line">
-          <svg>
-            <use href="/src/images/icons.svg#line3"></use>
-          </svg>
-        </li>
         <li class="fivedays-range-item">
           <span class="fivedays-range">max</span>
           <span class="fivedays-temp">${Math.round(list.main.temp_max)}°</span>
@@ -62,18 +57,22 @@ export const getFiveForecast = forecast => {
   //   })
   // );
 
-  ulForecast.addEventListener('click', (e) => {
+  moreInfoContainer.classList.add('hidden'); //this ensures that if you click other cities/countries
+  //                                         // the more info container will be hidden
+  //                                         // and you cant put this on moreInfo.js because it is not click the moreInfoButton
+
+  ulForecast.addEventListener('click', e => {
     if (e.target && e.target.matches('.fivedays-more-info')) {
       const index = Array.from(moreInfoButton).indexOf(e.target);
-  
+
       moreInfoContainer.classList.remove('hidden');
       getMoreInfo(forecast, index);
-  
+
       // Remove the active class from all items
       fiveDayItem.forEach(item => {
         item.classList.remove('fivedays-week-active');
       });
-  
+
       // Add the active class to the clicked item
       fiveDayItem[index].classList.add('fivedays-week-active');
 
@@ -82,7 +81,7 @@ export const getFiveForecast = forecast => {
       // Scroll the selected list item into view
       selectedItem.scrollIntoView({
         behavior: 'smooth', // Optional, makes the scroll smooth
-        block: 'start',    // Optional, aligns the item in the center of the viewport
+        block: 'start', // Optional, aligns the item in the center of the viewport
       });
     }
   });
@@ -91,7 +90,7 @@ export const getFiveForecast = forecast => {
     fiveDayItem.forEach(item => {
       item.classList.remove('fivedays-week-active');
     });
-  })
+  });
 };
 
 function getWeekdayFromTimestamp(timestamp) {
@@ -122,5 +121,5 @@ function getFormattedDateFromTimestamp(timestamp) {
   // Get the month name
   const month = months[monthIndex];
 
-  return `${day} ${month}`; 
+  return `${day} ${month}`;
 }

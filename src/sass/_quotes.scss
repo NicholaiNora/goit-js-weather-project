@@ -33,3 +33,10 @@
   line-height: normal;
   letter-spacing: 0.72px;
 }
+
+@media (max-width: 1080px) {
+  .quotes-wrapper {
+    position: static;
+    align-self: flex-end;
+  }
+}

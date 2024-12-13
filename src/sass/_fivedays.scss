@@ -36,6 +36,7 @@
   line-height: normal;
   letter-spacing: 1.12px;
 }
+
 .fivedays-result-container {
   display: flex;
   flex-direction: column;
@@ -48,7 +49,7 @@
   background: rgba(16, 33, 54, 0.8);
   /* shadow */
   box-shadow: 0px 8px 43px 0px rgba(16, 33, 54, 0.6);
-  padding: 40px 0;
+  padding: 40px 110px;
 }
 
 .fivedays-result-list {
@@ -134,6 +135,7 @@
 }
 
 .fivedays-range-item {
+  width: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -153,8 +155,6 @@
 
 .fivedays-temp {
   display: flex;
-  width: 50px;
-  height: 30px;
   flex-direction: column;
   justify-content: center;
   flex-shrink: 0;
@@ -195,4 +195,18 @@
   background-color: #fff; /* Adjust color */
   bottom: 1px; /* Adjust position */
   left: 0;
+}
+
+@media (max-width: 1080px) {
+  .fivedays-result-container {
+    width: 620px;
+    padding: 35px;
+  }
+
+  .fivedays-result-list {
+    gap: 20px;
+  }
+  .fivedays-range-item {
+    width: 40px;
+  }
 }

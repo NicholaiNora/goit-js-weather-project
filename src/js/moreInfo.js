@@ -5,7 +5,7 @@ const itemsPerPage = 8; // How many items to show per page
 
 export const getMoreInfo = (weather, page) => {
   ul.innerHTML = '';
-  
+
   // Calculate the start and end indices for the current page
   const startIndex = page * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -69,7 +69,6 @@ export const getMoreInfo = (weather, page) => {
         `;
 
     ul.appendChild(li);
-
   });
 };
 
@@ -81,9 +80,9 @@ button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="1
 
 ul.insertAdjacentElement('beforebegin', button);
 
-button.addEventListener("click", () => {
-  moreInfoContainer.classList.add("hidden");
-})
+button.addEventListener('click', () => {
+  moreInfoContainer.classList.add('hidden');
+});
 
 function getStandardTimeFromTimestamp(timestamp) {
   // Convert the timestamp (which is in seconds) to milliseconds

@@ -120,3 +120,15 @@
   bottom: -1px; /* Adjust position */
   left: 0;
 }
+
+
+@media (max-width: 1080px) {
+  .show-chart-container {
+    width: 620px;
+  }
+
+  .chart-container {
+    padding: 20px 30px;
+    min-height: 462px;
+  }
+}

@@ -1,12 +1,12 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 .container {
-  width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
-  // padding: 0 110px;
   padding-top: 79px;
   position: relative;
 }
+
 
 * {
   box-sizing: border-box;
@@ -64,4 +64,22 @@ img {
   -moz-transition: all 0.5s ease-in-out;
   -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+}
+
+@media (max-width: 1080px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    padding: 60px 0 90px;
+  }
+
+  .today-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    justify-content: center;
+    align-items: center;
+  }
 }
