@@ -38,6 +38,7 @@
 }
 
 .fivedays-result-container {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -200,7 +201,7 @@
 @media (max-width: 1080px) {
   .fivedays-result-container {
     width: 620px;
-    padding: 35px;
+    padding: 19px;
   }
 
   .fivedays-result-list {

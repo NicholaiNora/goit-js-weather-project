@@ -48,6 +48,7 @@ export const getFiveForecast = forecast => {
   const fiveDayItem = document.querySelectorAll('.fivedays-result-item');
   const moreInfoContainer = document.querySelector('.more-info-container');
   const closeButton = document.querySelector('.more-info-button');
+  const scrollBtns = document.querySelector('.scroll-btn');
   // ito yung hindi pa gumamit ng Event Delegation
   // moreInfoButton.forEach((button, index) =>
   //   button.addEventListener('click', (e) => {
@@ -57,16 +58,20 @@ export const getFiveForecast = forecast => {
   //   })
   // );
 
-  moreInfoContainer.classList.add('hidden'); //this ensures that if you click other cities/countries
-  //                                         // the more info container will be hidden
+  moreInfoContainer.classList.add('hidden');
+  closeButton.classList.add('hidden'); //this ensures that if you click other cities/countries
+  //                                         // the more info cloase button will be hidden
   //                                         // and you cant put this on moreInfo.js because it is not click the moreInfoButton
+  scrollBtns.classList.add('hidden');
 
   ulForecast.addEventListener('click', e => {
     if (e.target && e.target.matches('.fivedays-more-info')) {
       const index = Array.from(moreInfoButton).indexOf(e.target);
 
       moreInfoContainer.classList.remove('hidden');
+      closeButton.classList.remove('hidden');
       getMoreInfo(forecast, index);
+      scrollBtns.classList.remove('hidden');
 
       // Remove the active class from all items
       fiveDayItem.forEach(item => {

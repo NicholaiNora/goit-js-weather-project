@@ -1,5 +1,9 @@
 const ul = document.querySelector('.more-info-list');
+const ulFiveDays = document.querySelector('.fivedays-result-list');
 const moreInfoContainer = document.querySelector('.more-info-container');
+const scrollBtns = document.querySelector('.scroll-btn');
+const leftScroll = document.querySelector('.scrollLeft');
+const rightScroll = document.querySelector('.scrollRight');
 
 const itemsPerPage = 8; // How many items to show per page
 
@@ -70,18 +74,53 @@ export const getMoreInfo = (weather, page) => {
 
     ul.appendChild(li);
   });
+  leftScroll.addEventListener('click', () => {
+    ul.scrollBy({ left: -100, behavior: 'smooth' });
+  });
+
+  rightScroll.addEventListener('click', () => {
+    ul.scrollBy({ left: 100, behavior: 'smooth' });
+  });
+
+  // Attach to scroll and window resize events
+  ul.addEventListener('scroll', arrowVisibility);
+  window.addEventListener('resize', arrowVisibility);
+  arrowVisibility();
 };
 
+function arrowVisibility() {
+  const containerWidth = ul.clientWidth;
+  const contentWidth = ul.scrollWidth;
+
+  // Show arrows only if content overflows
+  const maxScrollLeft = contentWidth - containerWidth;
+  // Hide the left button if at the start of the list
+  if (ul.scrollLeft === 0) {
+    leftScroll.style.display = 'none';
+  } else {
+    leftScroll.style.display = 'block';
+  }
+
+  // Hide the right button if at the end of the list
+  if (ul.scrollLeft === maxScrollLeft) {
+    rightScroll.style.display = 'none';
+  } else {
+    rightScroll.style.display = 'block';
+  }
+}
+
 const button = document.createElement('button');
-button.classList.add('more-info-button');
+button.classList.add('more-info-button', 'hidden');
 button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
                       <path d="M1 1L11 11M1 11L11 1" stroke-width="1.5"/>
                     </svg>`;
 
-ul.insertAdjacentElement('beforebegin', button);
+ulFiveDays.insertAdjacentElement('afterend', button);
 
 button.addEventListener('click', () => {
   moreInfoContainer.classList.add('hidden');
+  button.classList.add('hidden');
+  scrollBtns.classList.add('hidden');
 });
 
 function getStandardTimeFromTimestamp(timestamp) {
