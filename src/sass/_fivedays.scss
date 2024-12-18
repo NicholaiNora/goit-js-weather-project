@@ -198,6 +198,11 @@
   left: 0;
 }
 
+//this is not to show/render in the flex if you are in desktop
+.scroll-btn {
+  display: none;
+}
+
 @media (max-width: 1080px) {
   .fivedays-result-container {
     width: 620px;
@@ -209,5 +214,10 @@
   }
   .fivedays-range-item {
     width: 40px;
+  }
+  
+  //this is to show/render in the flex if you are in desktop
+  .scroll-btn {
+    display: block;
   }
 }

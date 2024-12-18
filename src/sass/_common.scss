@@ -1,12 +1,11 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 .container {
-  max-width: 1280px;
+  width: 1280px;
   margin: 0 auto;
   padding-top: 79px;
   position: relative;
 }
-
 
 * {
   box-sizing: border-box;
@@ -48,8 +47,8 @@ img {
   visibility: hidden;
   position: absolute;
   opacity: 0;
-  // width: 1px;
-  // height: 1px;
+  width: 1px;
+  height: 1px;
   margin: 0;
   border: 0;
   padding: 0;
@@ -68,11 +67,12 @@ img {
 
 @media (max-width: 1080px) {
   .container {
+    width: 768px;
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;
-    padding: 60px 0 90px;
+    padding: 50px 0;
   }
 
   .today-container {

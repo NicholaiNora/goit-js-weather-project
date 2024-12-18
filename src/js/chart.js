@@ -4,7 +4,6 @@ const chartSpan = document.querySelector('.show-chart-span');
 const arrowIcon = document.querySelector('.show-chart-arrow-icon');
 const showChart = document.querySelector('.show-chart-container');
 
-
 let isOpen = false;
 
 showButton.addEventListener('click', () => {
@@ -20,6 +19,7 @@ showButton.addEventListener('click', () => {
     isOpen = true;
   } else {
     chartContainer.classList.add('hidden');
+    chartContainer.style.marginBottom = "0";
     chartSpan.textContent = 'Show Chart';
     arrowIcon.style.transform = 'rotate(0deg)';
     isOpen = false;
