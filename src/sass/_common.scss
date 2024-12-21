@@ -83,3 +83,10 @@ img {
     align-items: center;
   }
 }
+
+@media (max-width: 426px) {
+  .container {
+    width: 100%;
+    padding: 30px 20px;
+  }
+}

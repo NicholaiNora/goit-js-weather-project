@@ -98,6 +98,18 @@ export const getFiveForecast = forecast => {
   });
 };
 
+const fivedaysLeftScroll = document.querySelector('.fivedays-scrollLeft');
+const fivedaysRightScroll = document.querySelector('.fivedays-scrollRight');
+
+fivedaysLeftScroll.addEventListener('click', () => {
+  ulForecast.scrollBy({ left: -100, behavior: 'smooth' });
+});
+
+fivedaysRightScroll.addEventListener('click', () => {
+  ulForecast.scrollBy({ left: 100, behavior: 'smooth' });
+});
+
+
 function getWeekdayFromTimestamp(timestamp) {
   // Convert the timestamp from seconds to milliseconds
   const date = new Date(timestamp * 1000);

@@ -23,7 +23,6 @@
 
 .fivedays-country {
   display: flex;
-  width: 290px;
   height: 40px;
   flex-direction: column;
   justify-content: center;
@@ -203,6 +202,10 @@
   display: none;
 }
 
+.fivedays-scroll-btn {
+  display: none;
+}
+
 @media (max-width: 1080px) {
   .fivedays-result-container {
     width: 620px;
@@ -212,12 +215,60 @@
   .fivedays-result-list {
     gap: 20px;
   }
+
   .fivedays-range-item {
     width: 40px;
   }
-  
+
   //this is to show/render in the flex if you are in desktop
   .scroll-btn {
     display: block;
+  }
+}
+
+@media (max-width: 426px) {
+  .fivedays-result-container {
+    width: 280px;
+    padding: 0 15px;
+    padding-top: 80px;
+    gap: 15px;
+  }
+
+  .fivedays-country {
+    margin-bottom: -120px;
+    z-index: 1;
+  }
+
+  .fivedays-result-wrapper {
+    width: 280px;
+    padding: 0 15px;
+    overflow: auto;
+  }
+
+  .fivedays-result-list {
+    justify-content: flex-start;
+    overflow-x: auto;
+    scroll-behavior: smooth; /* Smooth scroll effect */
+    /* Hide scrollbar */
+    scrollbar-width: none; /* Firefox */
+  }
+
+  .fivedays-scroll-btn {
+    display: flex;
+    gap: 20px;
+  }
+
+  .fivedays-scroll-btn button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .fivedays-arrow-icon {
+    stroke: rgba(255, 255, 255, 0.5);
+  }
+
+  .fivedays-arrow-icon:hover {
+    stroke: white;
   }
 }

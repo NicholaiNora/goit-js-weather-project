@@ -110,3 +110,13 @@
   position: absolute;
   right: 0;
 }
+
+@media (max-width: 426px) {
+  .favorite-container {
+    width: 100%;
+  }
+
+  .favorite-country-list {
+    width: 200px;
+  }
+}

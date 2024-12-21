@@ -117,8 +117,9 @@
   .more-info-container {
     width: 100%;
     position: relative;
-    overflow: hidden;
+    overflow: auto;
   }
+
   .more-info-list {
     justify-content: flex-start;
     overflow-x: auto;
@@ -150,3 +151,19 @@
    bottom: 20px;
   }
 }
+
+@media (max-width: 426px) {
+  .more-info-button {
+    top: 315px;
+    right: 20px;
+  }
+
+  .more-info-list {
+    scrollbar-width: thin; /* Firefox */
+  }
+
+  .scroll-btn {
+    display: none;
+  }
+}
+

@@ -123,6 +123,37 @@ button.addEventListener('click', () => {
   scrollBtns.classList.add('hidden');
 });
 
+//for draggable scrolling
+const scrollableContainer = document.querySelector('.more-info-list');
+let isDragging = false;
+let startY;
+let scrollTop;
+
+scrollableContainer.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  startY = e.clientY;
+  scrollTop = scrollableContainer.scrollTop;
+  scrollableContainer.style.cursor = 'grabbing'; // Change cursor to grabbing when dragging
+});
+
+scrollableContainer.addEventListener('mousemove', (e) => {
+  if (!isDragging) return;
+
+  const distance = e.clientY - startY;
+  scrollableContainer.scrollTop = scrollTop - distance;
+});
+
+scrollableContainer.addEventListener('mouseup', () => {
+  isDragging = false;
+  scrollableContainer.style.cursor = 'grab'; // Reset cursor after dragging
+});
+
+scrollableContainer.addEventListener('mouseleave', () => {
+  isDragging = false;
+  scrollableContainer.style.cursor = 'grab'; // Reset cursor if mouse leaves
+});
+
+
 function getStandardTimeFromTimestamp(timestamp) {
   // Convert the timestamp (which is in seconds) to milliseconds
   const date = new Date(timestamp * 1000);

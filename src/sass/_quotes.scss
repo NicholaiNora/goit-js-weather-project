@@ -40,3 +40,9 @@
     align-self: flex-end;
   }
 }
+
+@media (max-width: 426px) {
+  .quotes-paragraph {
+    width: 100%; 
+  }
+}

@@ -157,3 +157,9 @@
     margin-right: 0px;
   }
 }
+
+@media (max-width: 426px) {
+  .weather-today-container {
+    width: 280px;
+  }
+}
