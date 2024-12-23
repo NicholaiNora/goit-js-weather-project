@@ -8,18 +8,23 @@ import { getFiveForecast } from './fiveDays';
 import { getMoreInfo } from './moreInfo';
 import { getChartData } from './myChart';
 import { getCity } from './favorite';
+import { fetchImage } from './backgroundApi';
 
 const API = 'c32df37628577b1447329bd64ef99bea';
 
 export const fetchWeather = async city => {
+  document.getElementById('loader').style.display = 'block';
   try {
     const res = await axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API}&units=metric`
     );
     const data = await res.data;
+    console.log(data);
     getWeatherToday(data);
     getDate(data);
     getCountry(data);
+    fetchImage(data.name);
+    document.getElementById('loader').style.display = 'none';
   } catch (error) {
     console.log(error.message);
     Notiflix.Notify.failure("Can't fetch weather");

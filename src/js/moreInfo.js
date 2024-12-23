@@ -124,35 +124,38 @@ button.addEventListener('click', () => {
 });
 
 //for draggable scrolling
-const scrollableContainer = document.querySelector('.more-info-list');
+// Variables to keep track of the dragging state and initial mouse position
 let isDragging = false;
-let startY;
-let scrollTop;
+let startX, scrollLeft;
 
-scrollableContainer.addEventListener('mousedown', (e) => {
+// Function to handle the start of the drag
+ul.addEventListener('mousedown', (e) => {
   isDragging = true;
-  startY = e.clientY;
-  scrollTop = scrollableContainer.scrollTop;
-  scrollableContainer.style.cursor = 'grabbing'; // Change cursor to grabbing when dragging
+  startX = e.pageX - ul.offsetLeft;
+  scrollLeft = ul.scrollLeft;
+  ul.style.cursor = 'grabbing'; // Change the cursor to grabbing
 });
 
-scrollableContainer.addEventListener('mousemove', (e) => {
-  if (!isDragging) return;
-
-  const distance = e.clientY - startY;
-  scrollableContainer.scrollTop = scrollTop - distance;
+// Function to handle the drag motion
+ul.addEventListener('mousemove', (e) => {
+  if (!isDragging) return; // If not dragging, do nothing
+  e.preventDefault(); // Prevent text selection during drag
+  const x = e.pageX - ul.offsetLeft; // Calculate the mouse movement
+  const walk = (x - startX) * 2; // Multiply to make scrolling faster
+  ul.scrollLeft = scrollLeft - walk; // Update the scroll position
 });
 
-scrollableContainer.addEventListener('mouseup', () => {
+// Function to handle the end of the drag
+ul.addEventListener('mouseup', () => {
   isDragging = false;
-  scrollableContainer.style.cursor = 'grab'; // Reset cursor after dragging
+  ul.style.cursor = 'grab'; // Change the cursor back to grab
 });
 
-scrollableContainer.addEventListener('mouseleave', () => {
+// Optional: Stop dragging if the mouse leaves the container
+ul.addEventListener('mouseleave', () => {
   isDragging = false;
-  scrollableContainer.style.cursor = 'grab'; // Reset cursor if mouse leaves
+  ul.style.cursor = 'grab';
 });
-
 
 function getStandardTimeFromTimestamp(timestamp) {
   // Convert the timestamp (which is in seconds) to milliseconds

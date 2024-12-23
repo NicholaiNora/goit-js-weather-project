@@ -17,7 +17,6 @@ function handleSubmit(e) {
   if (city) {
     fetchWeather(city);
     fetchFiveForecast(city);
-    fetchImage(city);
     getQuote();
   }
 }

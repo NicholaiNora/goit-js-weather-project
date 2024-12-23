@@ -81,12 +81,10 @@ export const getFiveForecast = forecast => {
       // Add the active class to the clicked item
       fiveDayItem[index].classList.add('fivedays-week-active');
 
-      const selectedItem = fiveDayItem[index]; // Get the clicked list item
-
       // Scroll the selected list item into view
-      selectedItem.scrollIntoView({
+      moreInfoContainer.scrollIntoView({
         behavior: 'smooth', // Optional, makes the scroll smooth
-        block: 'start', // Optional, aligns the item in the center of the viewport
+        block: 'center', // Optional, aligns the item in the center of the viewport
       });
     }
   });
